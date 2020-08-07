@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WantgoProdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="JwtParametros">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JWT_SECRET_KEY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="JWT_AUDIENCE_TOKEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="JWT_ISSUER_TOKEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="JWT_EXPIRE_MINUTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="Boolean" />
+    <Property Name="AUTHORIZED_SERVER" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="WantgoProdEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="JwtParametros" EntityType="Self.JwtParametros" />
+    <EntitySet Name="table_jwt" EntityType="WantgoProdModel.table_jwt" />
+    <EntitySet Name="categoria" EntityType="WantgoProdModel.categoria" />
+    <EntitySet Name="preferencias" EntityType="WantgoProdModel.preferencias" />
+    <EntitySet Name="preferencias_categoria" EntityType="WantgoProdModel.preferencias_categoria" />
+    <EntitySet Name="pais" EntityType="WantgoProdModel.pais" />
+    <EntitySet Name="experiencia" EntityType="WantgoProdModel.experiencia" />
+    <EntitySet Name="usuario_experiencia" EntityType="WantgoProdModel.usuario_experiencia" />
+    <EntitySet Name="contacto_emergencia" EntityType="WantgoProdModel.contacto_emergencia" />
+    <AssociationSet Name="Fk_id_experiencia" Association="WantgoProdModel.Fk_id_experiencia">
+      <End Role="experiencia" EntitySet="experiencia" />
+      <End Role="usuario_experiencia" EntitySet="usuario_experiencia" />
+    </AssociationSet>
+    <EntitySet Name="comentarios" EntityType="WantgoProdModel.comentarios" />
+    <EntitySet Name="conexiones" EntityType="WantgoProdModel.conexiones" />
+    <EntitySet Name="curiosidades" EntityType="WantgoProdModel.curiosidades" />
+    <EntitySet Name="emociones" EntityType="WantgoProdModel.emociones" />
+    <EntitySet Name="experiencia_emociones" EntityType="WantgoProdModel.experiencia_emociones" />
+    <EntitySet Name="fotos_publ_anfitrion" EntityType="WantgoProdModel.fotos_publ_anfitrion" />
+    <EntitySet Name="notificacion" EntityType="WantgoProdModel.notificacion" />
+    <EntitySet Name="preferencias_usuario" EntityType="WantgoProdModel.preferencias_usuario" />
+    <EntitySet Name="publicacion_anfitrion" EntityType="WantgoProdModel.publicacion_anfitrion" />
+    <EntitySet Name="seguimiento_usuario_pais" EntityType="WantgoProdModel.seguimiento_usuario_pais" />
+    <EntitySet Name="servicios" EntityType="WantgoProdModel.servicios" />
+    <EntitySet Name="servicios_publicacion_anfitrion" EntityType="WantgoProdModel.servicios_publicacion_anfitrion" />
+    <EntitySet Name="tipo_perfil" EntityType="WantgoProdModel.tipo_perfil" />
+    <AssociationSet Name="Fk_id_Curiosidades" Association="WantgoProdModel.Fk_id_Curiosidades">
+      <End Role="curiosidades" EntitySet="curiosidades" />
+      <End Role="comentarios" EntitySet="comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Curiosidades_id_Usuario_Experiencia" Association="WantgoProdModel.Fk_Curiosidades_id_Usuario_Experiencia">
+      <End Role="usuario_experiencia" EntitySet="usuario_experiencia" />
+      <End Role="curiosidades" EntitySet="curiosidades" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Fotos_id_Publicacion" Association="WantgoProdModel.Fk_Fotos_id_Publicacion">
+      <End Role="publicacion_anfitrion" EntitySet="publicacion_anfitrion" />
+      <End Role="fotos_publ_anfitrion" EntitySet="fotos_publ_anfitrion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__seguimien__id_pa__2FCF1A8A" Association="WantgoProdModel.FK__seguimien__id_pa__2FCF1A8A">
+      <End Role="pais" EntitySet="pais" />
+      <End Role="seguimiento_usuario_pais" EntitySet="seguimiento_usuario_pais" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_Preferencia" Association="WantgoProdModel.Fk_id_Preferencia">
+      <End Role="preferencias" EntitySet="preferencias" />
+      <End Role="preferencias_usuario" EntitySet="preferencias_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_Publicacion" Association="WantgoProdModel.Fk_id_Publicacion">
+      <End Role="publicacion_anfitrion" EntitySet="publicacion_anfitrion" />
+      <End Role="servicios_publicacion_anfitrion" EntitySet="servicios_publicacion_anfitrion" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_Servicios" Association="WantgoProdModel.Fk_id_Servicios">
+      <End Role="servicios" EntitySet="servicios" />
+      <End Role="servicios_publicacion_anfitrion" EntitySet="servicios_publicacion_anfitrion" />
+    </AssociationSet>
+    <EntitySet Name="PerfilesxUsuario" EntityType="WantgoProdModel.PerfilesxUsuario" />
+    <EntitySet Name="perfil" EntityType="WantgoProdModel.perfil" />
+    <EntitySet Name="usuario" EntityType="WantgoProdModel.usuario" />
+    <AssociationSet Name="Fk_Emergencia_id_usuario" Association="WantgoProdModel.Fk_Emergencia_id_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="contacto_emergencia" EntitySet="contacto_emergencia" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_Pais" Association="WantgoProdModel.Fk_id_Pais">
+      <End Role="pais" EntitySet="pais" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuario_p__id_us__57DD0BE4" Association="WantgoProdModel.FK__usuario_p__id_us__57DD0BE4">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="perfil" EntitySet="perfil" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_usuario" Association="WantgoProdModel.Fk_id_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="preferencias_usuario" EntitySet="preferencias_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_publicacion_id_usuario" Association="WantgoProdModel.Fk_publicacion_id_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="publicacion_anfitrion" EntitySet="publicacion_anfitrion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__seguimien__id_us__2EDAF651" Association="WantgoProdModel.FK__seguimien__id_us__2EDAF651">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="seguimiento_usuario_pais" EntitySet="seguimiento_usuario_pais" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_usuario_experiencia" Association="WantgoProdModel.Fk_id_usuario_experiencia">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuario_experiencia" EntitySet="usuario_experiencia" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="table_jwt">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="jwt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="id_Categoria" />
+    </Key>
+    <Property Name="id_Categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="preferencias">
+    <Key>
+      <PropertyRef Name="id_Preferencias" />
+    </Key>
+    <Property Name="id_Preferencias" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="Boolean" />
+    <NavigationProperty Name="preferencias_usuario" Relationship="WantgoProdModel.Fk_id_Preferencia" FromRole="preferencias" ToRole="preferencias_usuario" />
+  </EntityType>
+  <EntityType Name="preferencias_categoria">
+    <Key>
+      <PropertyRef Name="id_Preferencias" />
+      <PropertyRef Name="id_Categoria" />
+    </Key>
+    <Property Name="id_Preferencias" Type="Int32" Nullable="false" />
+    <Property Name="id_Categoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pais">
+    <Key>
+      <PropertyRef Name="id_Pais" />
+    </Key>
+    <Property Name="id_Pais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="deal_Pais" Type="Int32" />
+    <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ruta_logo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="seguimiento_usuario_pais" Relationship="WantgoProdModel.FK__seguimien__id_pa__2FCF1A8A" FromRole="pais" ToRole="seguimiento_usuario_pais" />
+    <NavigationProperty Name="usuario" Relationship="WantgoProdModel.Fk_id_Pais" FromRole="pais" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="experiencia">
+    <Key>
+      <PropertyRef Name="id_Experiencia" />
+    </Key>
+    <Property Name="id_Experiencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ruta_multimedia" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="id_Pais" Type="Int32" Nullable="false" />
+    <Property Name="id_Categoria" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="usuario_experiencia" Relationship="WantgoProdModel.Fk_id_experiencia" FromRole="experiencia" ToRole="usuario_experiencia" />
+  </EntityType>
+  <EntityType Name="usuario_experiencia">
+    <Key>
+      <PropertyRef Name="idUsuario_Experiencia" />
+    </Key>
+    <Property Name="idUsuario_Experiencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="id_Experiencia" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="experiencia" Relationship="WantgoProdModel.Fk_id_experiencia" FromRole="usuario_experiencia" ToRole="experiencia" />
+    <NavigationProperty Name="curiosidades" Relationship="WantgoProdModel.Fk_Curiosidades_id_Usuario_Experiencia" FromRole="usuario_experiencia" ToRole="curiosidades" />
+    <NavigationProperty Name="usuario" Relationship="WantgoProdModel.Fk_id_usuario_experiencia" FromRole="usuario_experiencia" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="contacto_emergencia">
+    <Key>
+      <PropertyRef Name="id_contacto_emergencia" />
+    </Key>
+    <Property Name="id_contacto_emergencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id_usuario" Type="Int32" />
+    <NavigationProperty Name="usuario" Relationship="WantgoProdModel.Fk_Emergencia_id_usuario" FromRole="contacto_emergencia" ToRole="usuario" />
+  </EntityType>
+  <Association Name="Fk_id_experiencia">
+    <End Type="WantgoProdModel.experiencia" Role="experiencia" Multiplicity="1" />
+    <End Type="WantgoProdModel.usuario_experiencia" Role="usuario_experiencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="experiencia">
+        <PropertyRef Name="id_Experiencia" />
+      </Principal>
+      <Dependent Role="usuario_experiencia">
+        <PropertyRef Name="id_Experiencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="comentarios">
+    <Key>
+      <PropertyRef Name="id_Comentarios" />
+    </Key>
+    <Property Name="id_Comentarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Usuario" Type="Int32" />
+    <Property Name="id_Curiosidades" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="curiosidades" Relationship="WantgoProdModel.Fk_id_Curiosidades" FromRole="comentarios" ToRole="curiosidades" />
+  </EntityType>
+  <EntityType Name="conexiones">
+    <Key>
+      <PropertyRef Name="id_Conexiones" />
+    </Key>
+    <Property Name="id_Conexiones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUsuario_Seguidor" Type="Int32" Nullable="false" />
+    <Property Name="idUsuario_Seguido" Type="Int32" Nullable="false" />
+    <Property Name="fecha_Conexion" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="curiosidades">
+    <Key>
+      <PropertyRef Name="id_Curiosidades" />
+    </Key>
+    <Property Name="id_Curiosidades" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="id_Usuario_Experiencia" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="comentarios" Relationship="WantgoProdModel.Fk_id_Curiosidades" FromRole="curiosidades" ToRole="comentarios" />
+    <NavigationProperty Name="usuario_experiencia" Relationship="WantgoProdModel.Fk_Curiosidades_id_Usuario_Experiencia" FromRole="curiosidades" ToRole="usuario_experiencia" />
+  </EntityType>
+  <EntityType Name="emociones">
+    <Key>
+      <PropertyRef Name="id_Emociones" />
+    </Key>
+    <Property Name="id_Emociones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ruta_multimedia" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="experiencia_emociones">
+    <Key>
+      <PropertyRef Name="idExperiencia_Emociones" />
+    </Key>
+    <Property Name="idExperiencia_Emociones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Experiencia" Type="Int32" Nullable="false" />
+    <Property Name="id_Emociones" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fotos_publ_anfitrion">
+    <Key>
+      <PropertyRef Name="idfotos_publ_anfitrion" />
+    </Key>
+    <Property Name="idfotos_publ_anfitrion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ruta_multimedia" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="idpublicacion_Anfitrion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="publicacion_anfitrion" Relationship="WantgoProdModel.Fk_Fotos_id_Publicacion" FromRole="fotos_publ_anfitrion" ToRole="publicacion_anfitrion" />
+  </EntityType>
+  <EntityType Name="notificacion">
+    <Key>
+      <PropertyRef Name="id_Notificacion" />
+    </Key>
+    <Property Name="id_Notificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="preferencias_usuario">
+    <Key>
+      <PropertyRef Name="id_preferencia_usuario" />
+    </Key>
+    <Property Name="id_preferencia_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Preferencias" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="preferencias" Relationship="WantgoProdModel.Fk_id_Preferencia" FromRole="preferencias_usuario" ToRole="preferencias" />
+    <NavigationProperty Name="usuario" Relationship="WantgoProdModel.Fk_id_usuario" FromRole="preferencias_usuario" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="publicacion_anfitrion">
+    <Key>
+      <PropertyRef Name="idpublicacion_Anfitrion" />
+    </Key>
+    <Property Name="idpublicacion_Anfitrion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="frase_representiva" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_publicacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="valor_por_noche" Type="Int32" Nullable="false" />
+    <Property Name="lat_lon" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ciudad" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="valor_Huesped_Adicional" Type="Int32" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="fotos_publ_anfitrion" Relationship="WantgoProdModel.Fk_Fotos_id_Publicacion" FromRole="publicacion_anfitrion" ToRole="fotos_publ_anfitrion" />
+    <NavigationProperty Name="servicios_publicacion_anfitrion" Relationship="WantgoProdModel.Fk_id_Publicacion" FromRole="publicacion_anfitrion" ToRole="servicios_publicacion_anfitrion" />
+    <NavigationProperty Name="usuario" Relationship="WantgoProdModel.Fk_publicacion_id_usuario" FromRole="publicacion_anfitrion" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="seguimiento_usuario_pais">
+    <Key>
+      <PropertyRef Name="id_seguimiento" />
+    </Key>
+    <Property Name="id_seguimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_usuario" Type="Int32" />
+    <Property Name="id_pais" Type="Int32" />
+    <NavigationProperty Name="pais" Relationship="WantgoProdModel.FK__seguimien__id_pa__2FCF1A8A" FromRole="seguimiento_usuario_pais" ToRole="pais" />
+    <NavigationProperty Name="usuario" Relationship="WantgoProdModel.FK__seguimien__id_us__2EDAF651" FromRole="seguimiento_usuario_pais" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="servicios">
+    <Key>
+      <PropertyRef Name="id_Servicios" />
+    </Key>
+    <Property Name="id_Servicios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="ruta_logo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="Boolean" />
+    <NavigationProperty Name="servicios_publicacion_anfitrion" Relationship="WantgoProdModel.Fk_id_Servicios" FromRole="servicios" ToRole="servicios_publicacion_anfitrion" />
+  </EntityType>
+  <EntityType Name="servicios_publicacion_anfitrion">
+    <Key>
+      <PropertyRef Name="id_servicios_publicacion_anfitrion" />
+    </Key>
+    <Property Name="id_servicios_publicacion_anfitrion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="calificacion_servicio" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="id_Servicios" Type="Int32" Nullable="false" />
+    <Property Name="idpublicacion_Anfitrion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="publicacion_anfitrion" Relationship="WantgoProdModel.Fk_id_Publicacion" FromRole="servicios_publicacion_anfitrion" ToRole="publicacion_anfitrion" />
+    <NavigationProperty Name="servicios" Relationship="WantgoProdModel.Fk_id_Servicios" FromRole="servicios_publicacion_anfitrion" ToRole="servicios" />
+  </EntityType>
+  <EntityType Name="tipo_perfil">
+    <Key>
+      <PropertyRef Name="id_tipo_perfil" />
+      <PropertyRef Name="id_usuario" />
+      <PropertyRef Name="idPerfil_usuario" />
+    </Key>
+    <Property Name="id_tipo_perfil" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="idPerfil_usuario" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="Fk_id_Curiosidades">
+    <End Type="WantgoProdModel.curiosidades" Role="curiosidades" Multiplicity="1" />
+    <End Type="WantgoProdModel.comentarios" Role="comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curiosidades">
+        <PropertyRef Name="id_Curiosidades" />
+      </Principal>
+      <Dependent Role="comentarios">
+        <PropertyRef Name="id_Curiosidades" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Curiosidades_id_Usuario_Experiencia">
+    <End Type="WantgoProdModel.usuario_experiencia" Role="usuario_experiencia" Multiplicity="1" />
+    <End Type="WantgoProdModel.curiosidades" Role="curiosidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario_experiencia">
+        <PropertyRef Name="idUsuario_Experiencia" />
+      </Principal>
+      <Dependent Role="curiosidades">
+        <PropertyRef Name="id_Usuario_Experiencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Fotos_id_Publicacion">
+    <End Type="WantgoProdModel.publicacion_anfitrion" Role="publicacion_anfitrion" Multiplicity="1" />
+    <End Type="WantgoProdModel.fotos_publ_anfitrion" Role="fotos_publ_anfitrion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publicacion_anfitrion">
+        <PropertyRef Name="idpublicacion_Anfitrion" />
+      </Principal>
+      <Dependent Role="fotos_publ_anfitrion">
+        <PropertyRef Name="idpublicacion_Anfitrion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__seguimien__id_pa__2FCF1A8A">
+    <End Type="WantgoProdModel.pais" Role="pais" Multiplicity="0..1" />
+    <End Type="WantgoProdModel.seguimiento_usuario_pais" Role="seguimiento_usuario_pais" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pais">
+        <PropertyRef Name="id_Pais" />
+      </Principal>
+      <Dependent Role="seguimiento_usuario_pais">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_Preferencia">
+    <End Type="WantgoProdModel.preferencias" Role="preferencias" Multiplicity="1" />
+    <End Type="WantgoProdModel.preferencias_usuario" Role="preferencias_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="preferencias">
+        <PropertyRef Name="id_Preferencias" />
+      </Principal>
+      <Dependent Role="preferencias_usuario">
+        <PropertyRef Name="id_Preferencias" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_Publicacion">
+    <End Type="WantgoProdModel.publicacion_anfitrion" Role="publicacion_anfitrion" Multiplicity="1" />
+    <End Type="WantgoProdModel.servicios_publicacion_anfitrion" Role="servicios_publicacion_anfitrion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publicacion_anfitrion">
+        <PropertyRef Name="idpublicacion_Anfitrion" />
+      </Principal>
+      <Dependent Role="servicios_publicacion_anfitrion">
+        <PropertyRef Name="idpublicacion_Anfitrion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_Servicios">
+    <End Type="WantgoProdModel.servicios" Role="servicios" Multiplicity="1" />
+    <End Type="WantgoProdModel.servicios_publicacion_anfitrion" Role="servicios_publicacion_anfitrion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="servicios">
+        <PropertyRef Name="id_Servicios" />
+      </Principal>
+      <Dependent Role="servicios_publicacion_anfitrion">
+        <PropertyRef Name="id_Servicios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PerfilesxUsuario">
+    <Key>
+      <PropertyRef Name="idPerfil_usuario" />
+    </Key>
+    <Property Name="idPerfil_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_perfil" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="perfil">
+    <Key>
+      <PropertyRef Name="id_perfil" />
+    </Key>
+    <Property Name="id_perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="apellido_usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cedula" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="rh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ciudad_nacimiento" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ocupacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="idiomas" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_nacimiento" Type="DateTime" Precision="0" />
+    <Property Name="numero_pasaporte" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pdf_cedula" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="id_usuario" Type="Int32" />
+    <NavigationProperty Name="usuario" Relationship="WantgoProdModel.FK__usuario_p__id_us__57DD0BE4" FromRole="perfil" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario1" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sexo" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="correo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="foto_Perfil" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="id_Pais" Type="Int32" Nullable="false" />
+    <Property Name="pasaporte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="contacto_emergencia" Relationship="WantgoProdModel.Fk_Emergencia_id_usuario" FromRole="usuario" ToRole="contacto_emergencia" />
+    <NavigationProperty Name="pais" Relationship="WantgoProdModel.Fk_id_Pais" FromRole="usuario" ToRole="pais" />
+    <NavigationProperty Name="perfil" Relationship="WantgoProdModel.FK__usuario_p__id_us__57DD0BE4" FromRole="usuario" ToRole="perfil" />
+    <NavigationProperty Name="preferencias_usuario" Relationship="WantgoProdModel.Fk_id_usuario" FromRole="usuario" ToRole="preferencias_usuario" />
+    <NavigationProperty Name="publicacion_anfitrion" Relationship="WantgoProdModel.Fk_publicacion_id_usuario" FromRole="usuario" ToRole="publicacion_anfitrion" />
+    <NavigationProperty Name="seguimiento_usuario_pais" Relationship="WantgoProdModel.FK__seguimien__id_us__2EDAF651" FromRole="usuario" ToRole="seguimiento_usuario_pais" />
+    <NavigationProperty Name="usuario_experiencia" Relationship="WantgoProdModel.Fk_id_usuario_experiencia" FromRole="usuario" ToRole="usuario_experiencia" />
+  </EntityType>
+  <Association Name="Fk_Emergencia_id_usuario">
+    <End Type="WantgoProdModel.usuario" Role="usuario" Multiplicity="0..1" />
+    <End Type="WantgoProdModel.contacto_emergencia" Role="contacto_emergencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="contacto_emergencia">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_Pais">
+    <End Type="WantgoProdModel.pais" Role="pais" Multiplicity="1" />
+    <End Type="WantgoProdModel.usuario" Role="usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pais">
+        <PropertyRef Name="id_Pais" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="id_Pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuario_p__id_us__57DD0BE4">
+    <End Type="WantgoProdModel.usuario" Role="usuario" Multiplicity="0..1" />
+    <End Type="WantgoProdModel.perfil" Role="perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="perfil">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_usuario">
+    <End Type="WantgoProdModel.usuario" Role="usuario" Multiplicity="1" />
+    <End Type="WantgoProdModel.preferencias_usuario" Role="preferencias_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="preferencias_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_publicacion_id_usuario">
+    <End Type="WantgoProdModel.usuario" Role="usuario" Multiplicity="1" />
+    <End Type="WantgoProdModel.publicacion_anfitrion" Role="publicacion_anfitrion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="publicacion_anfitrion">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__seguimien__id_us__2EDAF651">
+    <End Type="WantgoProdModel.usuario" Role="usuario" Multiplicity="0..1" />
+    <End Type="WantgoProdModel.seguimiento_usuario_pais" Role="seguimiento_usuario_pais" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="seguimiento_usuario_pais">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_usuario_experiencia">
+    <End Type="WantgoProdModel.usuario" Role="usuario" Multiplicity="1" />
+    <End Type="WantgoProdModel.usuario_experiencia" Role="usuario_experiencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="usuario_experiencia">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WantgoProdModelStoreContainer" CdmEntityContainer="WantgoProdEntities">
+    <EntitySetMapping Name="JwtParametros">
+      <EntityTypeMapping TypeName="WantgoProdModel.JwtParametros">
+        <MappingFragment StoreEntitySet="JwtParametros">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="JWT_SECRET_KEY" ColumnName="JWT_SECRET_KEY" />
+          <ScalarProperty Name="JWT_AUDIENCE_TOKEN" ColumnName="JWT_AUDIENCE_TOKEN" />
+          <ScalarProperty Name="JWT_ISSUER_TOKEN" ColumnName="JWT_ISSUER_TOKEN" />
+          <ScalarProperty Name="JWT_EXPIRE_MINUTES" ColumnName="JWT_EXPIRE_MINUTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="AUTHORIZED_SERVER" ColumnName="AUTHORIZED_SERVER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="table_jwt">
+      <EntityTypeMapping TypeName="WantgoProdModel.table_jwt">
+        <MappingFragment StoreEntitySet="table_jwt">
+          <ScalarProperty Name="jwt" ColumnName="jwt" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categoria">
+      <EntityTypeMapping TypeName="WantgoProdModel.categoria">
+        <MappingFragment StoreEntitySet="categoria">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_Categoria" ColumnName="id_Categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="preferencias">
+      <EntityTypeMapping TypeName="WantgoProdModel.preferencias">
+        <MappingFragment StoreEntitySet="preferencias">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_Preferencias" ColumnName="id_Preferencias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="preferencias_categoria">
+      <EntityTypeMapping TypeName="WantgoProdModel.preferencias_categoria">
+        <MappingFragment StoreEntitySet="preferencias_categoria">
+          <ScalarProperty Name="id_Categoria" ColumnName="id_Categoria" />
+          <ScalarProperty Name="id_Preferencias" ColumnName="id_Preferencias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pais">
+      <EntityTypeMapping TypeName="WantgoProdModel.pais">
+        <MappingFragment StoreEntitySet="pais">
+          <ScalarProperty Name="ruta_logo" ColumnName="ruta_logo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="deal_Pais" ColumnName="deal_Pais" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="experiencia">
+      <EntityTypeMapping TypeName="WantgoProdModel.experiencia">
+        <MappingFragment StoreEntitySet="experiencia">
+          <ScalarProperty Name="id_Categoria" ColumnName="id_Categoria" />
+          <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="ruta_multimedia" ColumnName="ruta_multimedia" />
+          <ScalarProperty Name="id_Experiencia" ColumnName="id_Experiencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario_experiencia">
+      <EntityTypeMapping TypeName="WantgoProdModel.usuario_experiencia">
+        <MappingFragment StoreEntitySet="usuario_experiencia">
+          <ScalarProperty Name="id_Experiencia" ColumnName="id_Experiencia" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="idUsuario_Experiencia" ColumnName="idUsuario_Experiencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacto_emergencia">
+      <EntityTypeMapping TypeName="WantgoProdModel.contacto_emergencia">
+        <MappingFragment StoreEntitySet="contacto_emergencia">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_contacto_emergencia" ColumnName="id_contacto_emergencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comentarios">
+      <EntityTypeMapping TypeName="WantgoProdModel.comentarios">
+        <MappingFragment StoreEntitySet="comentarios">
+          <ScalarProperty Name="id_Curiosidades" ColumnName="id_Curiosidades" />
+          <ScalarProperty Name="id_Usuario" ColumnName="id_Usuario" />
+          <ScalarProperty Name="id_Comentarios" ColumnName="id_Comentarios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="conexiones">
+      <EntityTypeMapping TypeName="WantgoProdModel.conexiones">
+        <MappingFragment StoreEntitySet="conexiones">
+          <ScalarProperty Name="fecha_Conexion" ColumnName="fecha_Conexion" />
+          <ScalarProperty Name="idUsuario_Seguido" ColumnName="idUsuario_Seguido" />
+          <ScalarProperty Name="idUsuario_Seguidor" ColumnName="idUsuario_Seguidor" />
+          <ScalarProperty Name="id_Conexiones" ColumnName="id_Conexiones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="curiosidades">
+      <EntityTypeMapping TypeName="WantgoProdModel.curiosidades">
+        <MappingFragment StoreEntitySet="curiosidades">
+          <ScalarProperty Name="id_Usuario_Experiencia" ColumnName="id_Usuario_Experiencia" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id_Curiosidades" ColumnName="id_Curiosidades" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emociones">
+      <EntityTypeMapping TypeName="WantgoProdModel.emociones">
+        <MappingFragment StoreEntitySet="emociones">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="ruta_multimedia" ColumnName="ruta_multimedia" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_Emociones" ColumnName="id_Emociones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="experiencia_emociones">
+      <EntityTypeMapping TypeName="WantgoProdModel.experiencia_emociones">
+        <MappingFragment StoreEntitySet="experiencia_emociones">
+          <ScalarProperty Name="id_Emociones" ColumnName="id_Emociones" />
+          <ScalarProperty Name="id_Experiencia" ColumnName="id_Experiencia" />
+          <ScalarProperty Name="idExperiencia_Emociones" ColumnName="idExperiencia_Emociones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fotos_publ_anfitrion">
+      <EntityTypeMapping TypeName="WantgoProdModel.fotos_publ_anfitrion">
+        <MappingFragment StoreEntitySet="fotos_publ_anfitrion">
+          <ScalarProperty Name="idpublicacion_Anfitrion" ColumnName="idpublicacion_Anfitrion" />
+          <ScalarProperty Name="ruta_multimedia" ColumnName="ruta_multimedia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idfotos_publ_anfitrion" ColumnName="idfotos_publ_anfitrion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notificacion">
+      <EntityTypeMapping TypeName="WantgoProdModel.notificacion">
+        <MappingFragment StoreEntitySet="notificacion">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_Notificacion" ColumnName="id_Notificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="preferencias_usuario">
+      <EntityTypeMapping TypeName="WantgoProdModel.preferencias_usuario">
+        <MappingFragment StoreEntitySet="preferencias_usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_Preferencias" ColumnName="id_Preferencias" />
+          <ScalarProperty Name="id_preferencia_usuario" ColumnName="id_preferencia_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publicacion_anfitrion">
+      <EntityTypeMapping TypeName="WantgoProdModel.publicacion_anfitrion">
+        <MappingFragment StoreEntitySet="publicacion_anfitrion">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="valor_Huesped_Adicional" ColumnName="valor_Huesped_Adicional" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="lat_lon" ColumnName="lat_lon" />
+          <ScalarProperty Name="valor_por_noche" ColumnName="valor_por_noche" />
+          <ScalarProperty Name="fecha_publicacion" ColumnName="fecha_publicacion" />
+          <ScalarProperty Name="frase_representiva" ColumnName="frase_representiva" />
+          <ScalarProperty Name="idpublicacion_Anfitrion" ColumnName="idpublicacion_Anfitrion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="seguimiento_usuario_pais">
+      <EntityTypeMapping TypeName="WantgoProdModel.seguimiento_usuario_pais">
+        <MappingFragment StoreEntitySet="seguimiento_usuario_pais">
+          <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_seguimiento" ColumnName="id_seguimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servicios">
+      <EntityTypeMapping TypeName="WantgoProdModel.servicios">
+        <MappingFragment StoreEntitySet="servicios">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="ruta_logo" ColumnName="ruta_logo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_Servicios" ColumnName="id_Servicios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servicios_publicacion_anfitrion">
+      <EntityTypeMapping TypeName="WantgoProdModel.servicios_publicacion_anfitrion">
+        <MappingFragment StoreEntitySet="servicios_publicacion_anfitrion">
+          <ScalarProperty Name="idpublicacion_Anfitrion" ColumnName="idpublicacion_Anfitrion" />
+          <ScalarProperty Name="id_Servicios" ColumnName="id_Servicios" />
+          <ScalarProperty Name="calificacion_servicio" ColumnName="calificacion_servicio" />
+          <ScalarProperty Name="id_servicios_publicacion_anfitrion" ColumnName="id_servicios_publicacion_anfitrion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_perfil">
+      <EntityTypeMapping TypeName="WantgoProdModel.tipo_perfil">
+        <MappingFragment StoreEntitySet="tipo_perfil">
+          <ScalarProperty Name="idPerfil_usuario" ColumnName="idPerfil_usuario" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_tipo_perfil" ColumnName="id_tipo_perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerfilesxUsuario">
+      <EntityTypeMapping TypeName="WantgoProdModel.PerfilesxUsuario">
+        <MappingFragment StoreEntitySet="PerfilesxUsuario">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="tipo_perfil" ColumnName="tipo_perfil" />
+          <ScalarProperty Name="idPerfil_usuario" ColumnName="idPerfil_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="perfil">
+      <EntityTypeMapping TypeName="WantgoProdModel.perfil">
+        <MappingFragment StoreEntitySet="perfil">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="pdf_cedula" ColumnName="pdf_cedula" />
+          <ScalarProperty Name="numero_pasaporte" ColumnName="numero_pasaporte" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="idiomas" ColumnName="idiomas" />
+          <ScalarProperty Name="ocupacion" ColumnName="ocupacion" />
+          <ScalarProperty Name="ciudad_nacimiento" ColumnName="ciudad_nacimiento" />
+          <ScalarProperty Name="rh" ColumnName="rh" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="apellido_usuario" ColumnName="apellido_usuario" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="WantgoProdModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="pasaporte" ColumnName="pasaporte" />
+          <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
+          <ScalarProperty Name="foto_Perfil" ColumnName="foto_Perfil" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

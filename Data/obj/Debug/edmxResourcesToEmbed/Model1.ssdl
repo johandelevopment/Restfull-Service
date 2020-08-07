@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WantgoProdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="id_Categoria" />
+    </Key>
+    <Property Name="id_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="comentarios">
+    <Key>
+      <PropertyRef Name="id_Comentarios" />
+    </Key>
+    <Property Name="id_Comentarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Usuario" Type="int" />
+    <Property Name="id_Curiosidades" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conexiones">
+    <Key>
+      <PropertyRef Name="id_Conexiones" />
+    </Key>
+    <Property Name="id_Conexiones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_usuario_conexion" Type="int" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ultima_modificacion" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="contacto_emergencia">
+    <Key>
+      <PropertyRef Name="id_contacto_emergencia" />
+    </Key>
+    <Property Name="id_contacto_emergencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" />
+    <Property Name="correo" Type="varchar" MaxLength="200" />
+    <Property Name="telefono" Type="varchar" MaxLength="100" />
+    <Property Name="id_usuario" Type="int" />
+  </EntityType>
+  <EntityType Name="curiosidades">
+    <Key>
+      <PropertyRef Name="id_Curiosidades" />
+    </Key>
+    <Property Name="id_Curiosidades" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="id_Usuario_Experiencia" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="emociones">
+    <Key>
+      <PropertyRef Name="id_Emociones" />
+    </Key>
+    <Property Name="id_Emociones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ruta_multimedia" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="experiencia">
+    <Key>
+      <PropertyRef Name="id_Experiencia" />
+    </Key>
+    <Property Name="id_Experiencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ruta_multimedia" Type="nvarchar" MaxLength="200" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="200" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="1000" />
+    <Property Name="id_Pais" Type="int" Nullable="false" />
+    <Property Name="id_Categoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="experiencia_emociones">
+    <Key>
+      <PropertyRef Name="idExperiencia_Emociones" />
+    </Key>
+    <Property Name="idExperiencia_Emociones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Experiencia" Type="int" Nullable="false" />
+    <Property Name="id_Emociones" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fotos_publ_anfitrion">
+    <Key>
+      <PropertyRef Name="idfotos_publ_anfitrion" />
+    </Key>
+    <Property Name="idfotos_publ_anfitrion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ruta_multimedia" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="idpublicacion_Anfitrion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JwtParametros">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JWT_SECRET_KEY" Type="varchar(max)" />
+    <Property Name="JWT_AUDIENCE_TOKEN" Type="varchar(max)" />
+    <Property Name="JWT_ISSUER_TOKEN" Type="varchar(max)" />
+    <Property Name="JWT_EXPIRE_MINUTES" Type="varchar(max)" />
+    <Property Name="STATUS" Type="bit" />
+    <Property Name="AUTHORIZED_SERVER" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="notificacion">
+    <Key>
+      <PropertyRef Name="id_Notificacion" />
+    </Key>
+    <Property Name="id_Notificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pais">
+    <Key>
+      <PropertyRef Name="id_Pais" />
+    </Key>
+    <Property Name="id_Pais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="deal_Pais" Type="int" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ruta_logo" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="perfil">
+    <Key>
+      <PropertyRef Name="id_perfil" />
+    </Key>
+    <Property Name="id_perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_usuario" Type="varchar" MaxLength="200" />
+    <Property Name="apellido_usuario" Type="varchar" MaxLength="200" />
+    <Property Name="descripcion" Type="varchar(max)" />
+    <Property Name="cedula" Type="varchar" MaxLength="100" />
+    <Property Name="rh" Type="varchar" MaxLength="50" />
+    <Property Name="ciudad_nacimiento" Type="varchar" MaxLength="200" />
+    <Property Name="ocupacion" Type="varchar" MaxLength="500" />
+    <Property Name="idiomas" Type="varchar" MaxLength="500" />
+    <Property Name="fecha_nacimiento" Type="date" />
+    <Property Name="numero_pasaporte" Type="varchar" MaxLength="100" />
+    <Property Name="pdf_cedula" Type="varchar" MaxLength="500" />
+    <Property Name="id_usuario" Type="int" />
+  </EntityType>
+  <EntityType Name="PerfilesxUsuario">
+    <Key>
+      <PropertyRef Name="idPerfil_usuario" />
+    </Key>
+    <Property Name="idPerfil_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_perfil" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="preferencias">
+    <Key>
+      <PropertyRef Name="id_Preferencias" />
+    </Key>
+    <Property Name="id_Preferencias" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="1000" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'WantgoProd.dbo.preferencias_categoria' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="preferencias_categoria">
+    <Key>
+      <PropertyRef Name="id_Preferencias" />
+      <PropertyRef Name="id_Categoria" />
+    </Key>
+    <Property Name="id_Preferencias" Type="int" Nullable="false" />
+    <Property Name="id_Categoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="preferencias_usuario">
+    <Key>
+      <PropertyRef Name="id_preferencia_usuario" />
+    </Key>
+    <Property Name="id_preferencia_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Preferencias" Type="int" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="publicacion_anfitrion">
+    <Key>
+      <PropertyRef Name="idpublicacion_Anfitrion" />
+    </Key>
+    <Property Name="idpublicacion_Anfitrion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="frase_representiva" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha_publicacion" Type="smalldatetime" Nullable="false" />
+    <Property Name="valor_por_noche" Type="int" Nullable="false" />
+    <Property Name="lat_lon" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ciudad" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="valor_Huesped_Adicional" Type="int" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="seguimiento_usuario_pais">
+    <Key>
+      <PropertyRef Name="id_seguimiento" />
+    </Key>
+    <Property Name="id_seguimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="int" />
+    <Property Name="id_pais" Type="int" />
+  </EntityType>
+  <EntityType Name="servicios">
+    <Key>
+      <PropertyRef Name="id_Servicios" />
+    </Key>
+    <Property Name="id_Servicios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="ruta_logo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="servicios_publicacion_anfitrion">
+    <Key>
+      <PropertyRef Name="id_servicios_publicacion_anfitrion" />
+    </Key>
+    <Property Name="id_servicios_publicacion_anfitrion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="calificacion_servicio" Type="nvarchar" MaxLength="200" />
+    <Property Name="id_Servicios" Type="int" Nullable="false" />
+    <Property Name="idpublicacion_Anfitrion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="table_jwt">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jwt" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'WantgoProd.dbo.tipo_perfil' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="tipo_perfil">
+    <Key>
+      <PropertyRef Name="id_tipo_perfil" />
+      <PropertyRef Name="id_usuario" />
+      <PropertyRef Name="idPerfil_usuario" />
+    </Key>
+    <Property Name="id_tipo_perfil" Type="int" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="idPerfil_usuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Sexo" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="45" />
+    <Property Name="correo" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="foto_Perfil" Type="nvarchar" MaxLength="200" />
+    <Property Name="id_Pais" Type="int" Nullable="false" />
+    <Property Name="pasaporte" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="usuario_experiencia">
+    <Key>
+      <PropertyRef Name="idUsuario_Experiencia" />
+    </Key>
+    <Property Name="idUsuario_Experiencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_Experiencia" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__seguimien__id_pa__2FCF1A8A">
+    <End Role="pais" Type="Self.pais" Multiplicity="0..1" />
+    <End Role="seguimiento_usuario_pais" Type="Self.seguimiento_usuario_pais" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pais">
+        <PropertyRef Name="id_Pais" />
+      </Principal>
+      <Dependent Role="seguimiento_usuario_pais">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__seguimien__id_us__2EDAF651">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="seguimiento_usuario_pais" Type="Self.seguimiento_usuario_pais" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="seguimiento_usuario_pais">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuario_p__id_us__57DD0BE4">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="perfil" Type="Self.perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="perfil">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Curiosidades_id_Usuario_Experiencia">
+    <End Role="usuario_experiencia" Type="Self.usuario_experiencia" Multiplicity="1" />
+    <End Role="curiosidades" Type="Self.curiosidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario_experiencia">
+        <PropertyRef Name="idUsuario_Experiencia" />
+      </Principal>
+      <Dependent Role="curiosidades">
+        <PropertyRef Name="id_Usuario_Experiencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Emergencia_id_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="contacto_emergencia" Type="Self.contacto_emergencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="contacto_emergencia">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Fotos_id_Publicacion">
+    <End Role="publicacion_anfitrion" Type="Self.publicacion_anfitrion" Multiplicity="1" />
+    <End Role="fotos_publ_anfitrion" Type="Self.fotos_publ_anfitrion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publicacion_anfitrion">
+        <PropertyRef Name="idpublicacion_Anfitrion" />
+      </Principal>
+      <Dependent Role="fotos_publ_anfitrion">
+        <PropertyRef Name="idpublicacion_Anfitrion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_Curiosidades">
+    <End Role="curiosidades" Type="Self.curiosidades" Multiplicity="1" />
+    <End Role="comentarios" Type="Self.comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curiosidades">
+        <PropertyRef Name="id_Curiosidades" />
+      </Principal>
+      <Dependent Role="comentarios">
+        <PropertyRef Name="id_Curiosidades" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_experiencia">
+    <End Role="experiencia" Type="Self.experiencia" Multiplicity="1" />
+    <End Role="usuario_experiencia" Type="Self.usuario_experiencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="experiencia">
+        <PropertyRef Name="id_Experiencia" />
+      </Principal>
+      <Dependent Role="usuario_experiencia">
+        <PropertyRef Name="id_Experiencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_Pais">
+    <End Role="pais" Type="Self.pais" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pais">
+        <PropertyRef Name="id_Pais" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="id_Pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_Preferencia">
+    <End Role="preferencias" Type="Self.preferencias" Multiplicity="1" />
+    <End Role="preferencias_usuario" Type="Self.preferencias_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="preferencias">
+        <PropertyRef Name="id_Preferencias" />
+      </Principal>
+      <Dependent Role="preferencias_usuario">
+        <PropertyRef Name="id_Preferencias" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_Publicacion">
+    <End Role="publicacion_anfitrion" Type="Self.publicacion_anfitrion" Multiplicity="1" />
+    <End Role="servicios_publicacion_anfitrion" Type="Self.servicios_publicacion_anfitrion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publicacion_anfitrion">
+        <PropertyRef Name="idpublicacion_Anfitrion" />
+      </Principal>
+      <Dependent Role="servicios_publicacion_anfitrion">
+        <PropertyRef Name="idpublicacion_Anfitrion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_Servicios">
+    <End Role="servicios" Type="Self.servicios" Multiplicity="1" />
+    <End Role="servicios_publicacion_anfitrion" Type="Self.servicios_publicacion_anfitrion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="servicios">
+        <PropertyRef Name="id_Servicios" />
+      </Principal>
+      <Dependent Role="servicios_publicacion_anfitrion">
+        <PropertyRef Name="id_Servicios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="preferencias_usuario" Type="Self.preferencias_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="preferencias_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_usuario_experiencia">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="usuario_experiencia" Type="Self.usuario_experiencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="usuario_experiencia">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_publicacion_id_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="publicacion_anfitrion" Type="Self.publicacion_anfitrion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="publicacion_anfitrion">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuario_conexion">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="conexiones" Type="Self.conexiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="conexiones">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WantgoProdModelStoreContainer">
+    <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="comentarios" EntityType="Self.comentarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="conexiones" EntityType="Self.conexiones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contacto_emergencia" EntityType="Self.contacto_emergencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="curiosidades" EntityType="Self.curiosidades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emociones" EntityType="Self.emociones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="experiencia" EntityType="Self.experiencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="experiencia_emociones" EntityType="Self.experiencia_emociones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fotos_publ_anfitrion" EntityType="Self.fotos_publ_anfitrion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JwtParametros" EntityType="Self.JwtParametros" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notificacion" EntityType="Self.notificacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pais" EntityType="Self.pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="perfil" EntityType="Self.perfil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PerfilesxUsuario" EntityType="Self.PerfilesxUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="preferencias" EntityType="Self.preferencias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="preferencias_usuario" EntityType="Self.preferencias_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="publicacion_anfitrion" EntityType="Self.publicacion_anfitrion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="seguimiento_usuario_pais" EntityType="Self.seguimiento_usuario_pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="servicios" EntityType="Self.servicios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="servicios_publicacion_anfitrion" EntityType="Self.servicios_publicacion_anfitrion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="table_jwt" EntityType="Self.table_jwt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario_experiencia" EntityType="Self.usuario_experiencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="preferencias_categoria" EntityType="Self.preferencias_categoria" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [preferencias_categoria].[id_Preferencias] AS [id_Preferencias], 
+    [preferencias_categoria].[id_Categoria] AS [id_Categoria]
+    FROM [dbo].[preferencias_categoria] AS [preferencias_categoria]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tipo_perfil" EntityType="Self.tipo_perfil" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tipo_perfil].[id_tipo_perfil] AS [id_tipo_perfil], 
+    [tipo_perfil].[id_usuario] AS [id_usuario], 
+    [tipo_perfil].[idPerfil_usuario] AS [idPerfil_usuario]
+    FROM [dbo].[tipo_perfil] AS [tipo_perfil]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__seguimien__id_pa__2FCF1A8A" Association="Self.FK__seguimien__id_pa__2FCF1A8A">
+      <End Role="pais" EntitySet="pais" />
+      <End Role="seguimiento_usuario_pais" EntitySet="seguimiento_usuario_pais" />
+    </AssociationSet>
+    <AssociationSet Name="FK__seguimien__id_us__2EDAF651" Association="Self.FK__seguimien__id_us__2EDAF651">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="seguimiento_usuario_pais" EntitySet="seguimiento_usuario_pais" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuario_p__id_us__57DD0BE4" Association="Self.FK__usuario_p__id_us__57DD0BE4">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="perfil" EntitySet="perfil" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Curiosidades_id_Usuario_Experiencia" Association="Self.Fk_Curiosidades_id_Usuario_Experiencia">
+      <End Role="usuario_experiencia" EntitySet="usuario_experiencia" />
+      <End Role="curiosidades" EntitySet="curiosidades" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Emergencia_id_usuario" Association="Self.Fk_Emergencia_id_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="contacto_emergencia" EntitySet="contacto_emergencia" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Fotos_id_Publicacion" Association="Self.Fk_Fotos_id_Publicacion">
+      <End Role="publicacion_anfitrion" EntitySet="publicacion_anfitrion" />
+      <End Role="fotos_publ_anfitrion" EntitySet="fotos_publ_anfitrion" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_Curiosidades" Association="Self.Fk_id_Curiosidades">
+      <End Role="curiosidades" EntitySet="curiosidades" />
+      <End Role="comentarios" EntitySet="comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_experiencia" Association="Self.Fk_id_experiencia">
+      <End Role="experiencia" EntitySet="experiencia" />
+      <End Role="usuario_experiencia" EntitySet="usuario_experiencia" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_Pais" Association="Self.Fk_id_Pais">
+      <End Role="pais" EntitySet="pais" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_Preferencia" Association="Self.Fk_id_Preferencia">
+      <End Role="preferencias" EntitySet="preferencias" />
+      <End Role="preferencias_usuario" EntitySet="preferencias_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_Publicacion" Association="Self.Fk_id_Publicacion">
+      <End Role="publicacion_anfitrion" EntitySet="publicacion_anfitrion" />
+      <End Role="servicios_publicacion_anfitrion" EntitySet="servicios_publicacion_anfitrion" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_Servicios" Association="Self.Fk_id_Servicios">
+      <End Role="servicios" EntitySet="servicios" />
+      <End Role="servicios_publicacion_anfitrion" EntitySet="servicios_publicacion_anfitrion" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_usuario" Association="Self.Fk_id_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="preferencias_usuario" EntitySet="preferencias_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_usuario_experiencia" Association="Self.Fk_id_usuario_experiencia">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuario_experiencia" EntitySet="usuario_experiencia" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_publicacion_id_usuario" Association="Self.Fk_publicacion_id_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="publicacion_anfitrion" EntitySet="publicacion_anfitrion" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuario_conexion" Association="Self.fk_usuario_conexion">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="conexiones" EntitySet="conexiones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

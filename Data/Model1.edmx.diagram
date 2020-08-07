@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5df45001d8dd4c53bdeea846ce1e702d" Name="Diagram1">
+        <EntityTypeShape EntityType="WantgoProdModel.JwtParametros" Width="1.5" PointX="0.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WantgoProdModel.table_jwt" Width="1.5" PointX="5.375" PointY="1" />
+        <EntityTypeShape EntityType="WantgoProdModel.categoria" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="WantgoProdModel.preferencias" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="WantgoProdModel.preferencias_categoria" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="WantgoProdModel.pais" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="WantgoProdModel.experiencia" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="WantgoProdModel.usuario_experiencia" Width="1.5" PointX="7.375" PointY="4.75" />
+        <AssociationConnector Association="WantgoProdModel.Fk_id_experiencia" />
+        <EntityTypeShape EntityType="WantgoProdModel.comentarios" Width="1.5" PointX="12.25" PointY="7" />
+        <EntityTypeShape EntityType="WantgoProdModel.curiosidades" Width="1.5" PointX="10" PointY="6.875" />
+        <EntityTypeShape EntityType="WantgoProdModel.emociones" Width="1.5" PointX="5.75" PointY="11.875" />
+        <EntityTypeShape EntityType="WantgoProdModel.experiencia_emociones" Width="1.5" PointX="0.75" PointY="12.875" />
+        <EntityTypeShape EntityType="WantgoProdModel.fotos_publ_anfitrion" Width="1.5" PointX="12.625" PointY="12.5" />
+        <EntityTypeShape EntityType="WantgoProdModel.notificacion" Width="1.5" PointX="2.75" PointY="12.875" />
+        <EntityTypeShape EntityType="WantgoProdModel.preferencias_usuario" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WantgoProdModel.publicacion_anfitrion" Width="1.5" PointX="10.375" PointY="11.875" />
+        <EntityTypeShape EntityType="WantgoProdModel.seguimiento_usuario_pais" Width="1.5" PointX="10.375" PointY="3.5" />
+        <EntityTypeShape EntityType="WantgoProdModel.servicios" Width="1.5" PointX="10.375" PointY="21.5" />
+        <EntityTypeShape EntityType="WantgoProdModel.servicios_publicacion_anfitrion" Width="1.5" PointX="12.625" PointY="15.375" />
+        <EntityTypeShape EntityType="WantgoProdModel.tipo_perfil" Width="1.5" PointX="12.75" PointY="9.875" />
+        <AssociationConnector Association="WantgoProdModel.Fk_id_Curiosidades" />
+        <AssociationConnector Association="WantgoProdModel.Fk_Curiosidades_id_Usuario_Experiencia" />
+        <AssociationConnector Association="WantgoProdModel.Fk_Fotos_id_Publicacion" />
+        <AssociationConnector Association="WantgoProdModel.FK__seguimien__id_pa__2FCF1A8A" />
+        <AssociationConnector Association="WantgoProdModel.Fk_id_Preferencia" />
+        <AssociationConnector Association="WantgoProdModel.Fk_id_Publicacion" />
+        <AssociationConnector Association="WantgoProdModel.Fk_id_Servicios" />
+        <EntityTypeShape EntityType="WantgoProdModel.PerfilesxUsuario" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WantgoProdModel.perfil" Width="1.5" PointX="4.375" PointY="15.25" />
+        <EntityTypeShape EntityType="WantgoProdModel.usuario" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="WantgoProdModel.Fk_id_Pais" />
+        <AssociationConnector Association="WantgoProdModel.FK__usuario_p__id_us__57DD0BE4" />
+        <AssociationConnector Association="WantgoProdModel.Fk_id_usuario" />
+        <AssociationConnector Association="WantgoProdModel.Fk_publicacion_id_usuario" />
+        <AssociationConnector Association="WantgoProdModel.FK__seguimien__id_us__2EDAF651" />
+        <AssociationConnector Association="WantgoProdModel.Fk_id_usuario_experiencia" />
+        <EntityTypeShape EntityType="WantgoProdModel.conexiones" Width="1.5" PointX="5.25" PointY="19.75" />
+        <AssociationConnector Association="WantgoProdModel.fk_usuario_conexion" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

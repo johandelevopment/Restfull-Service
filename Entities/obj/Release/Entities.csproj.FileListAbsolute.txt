@@ -1,0 +1,12 @@
+C:\Users\jsmartinga.NH\Downloads\wantgoService\Entities\bin\Release\Entities.dll
+C:\Users\jsmartinga.NH\Downloads\wantgoService\Entities\bin\Release\Entities.pdb
+C:\Users\jsmartinga.NH\Downloads\wantgoService\Entities\obj\Release\Entities.csprojAssemblyReference.cache
+C:\Users\jsmartinga.NH\Downloads\wantgoService\Entities\obj\Release\Entities.csproj.CoreCompileInputs.cache
+C:\Users\jsmartinga.NH\Downloads\wantgoService\Entities\obj\Release\Entities.dll
+C:\Users\jsmartinga.NH\Downloads\wantgoService\Entities\obj\Release\Entities.pdb
+C:\Users\jsmartinga.NH\Documents\Wantgo\wantgoService\Entities\bin\Release\Entities.dll
+C:\Users\jsmartinga.NH\Documents\Wantgo\wantgoService\Entities\bin\Release\Entities.pdb
+C:\Users\jsmartinga.NH\Documents\Wantgo\wantgoService\Entities\obj\Release\Entities.csproj.CoreCompileInputs.cache
+C:\Users\jsmartinga.NH\Documents\Wantgo\wantgoService\Entities\obj\Release\Entities.dll
+C:\Users\jsmartinga.NH\Documents\Wantgo\wantgoService\Entities\obj\Release\Entities.pdb
+C:\Users\jsmartinga.NH\Documents\Wantgo\wantgoService\Entities\obj\Release\Entities.csprojAssemblyReference.cache
